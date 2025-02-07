@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react'
 import styles from './SearchInput.module.scss'
 
 interface SearchInputProps {
-  changeInput: React.Dispatch<React.SetStateAction<string>>
+  changeInput: (value: string) => void
 }
 
 export const SearchInput = ({ changeInput }: SearchInputProps) => {

@@ -24,12 +24,5 @@ export const useDebounce = <T extends (...args: any[]) => void>(
     [func, delay]
   ) as DebouncedFunction<T>
 
-  debouncedFunction.cancel = () => {
-    if (timer.current) {
-      clearTimeout(timer.current)
-      timer.current = null
-    }
-  }
-
   return debouncedFunction
 }

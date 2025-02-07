@@ -17,17 +17,14 @@ export const App = () => {
     null
   )
 
+  const debouncedSetSearchTerm = useDebounce((value: string) => {
+    setSearchTerm(value)
+  }, 300)
+
   const handleLoadMore = async () => {
     const newCharacters = await apiController.fetchCharacters()
     setCharacters((prev) => [...prev, ...newCharacters.results])
   }
-
-  const debouncedFetch = useDebounce((term: string) => {
-    apiController.fetchCharacters({ name: term }).then((data) => {
-      setCharacters(data.results)
-      setNumberOfCharacters(data.info.count)
-    })
-  }, 300)
 
   useEffect(() => {
     apiController.setLoadingHandler(setLoadingIsFinished)
@@ -35,17 +32,19 @@ export const App = () => {
 
   useEffect(() => {
     if (searchTerm.length > 3) {
-      debouncedFetch(searchTerm)
+      apiController.fetchCharacters({ name: searchTerm }).then((data) => {
+        setCharacters(data.results)
+        setNumberOfCharacters(data.info.count)
+      })
     } else {
       setCharacters([])
       setNumberOfCharacters(null)
-      debouncedFetch.cancel()
     }
   }, [searchTerm])
 
   return (
     <>
-      <SearchInput changeInput={setSearchTerm} />
+      <SearchInput changeInput={debouncedSetSearchTerm} />
       {characters.length > 0 && (
         <p className="results">Found characters: {numberOfCharacters}</p>
       )}
