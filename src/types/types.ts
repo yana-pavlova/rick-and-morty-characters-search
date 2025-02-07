@@ -6,3 +6,12 @@ export type Character = {
   status: string
   url: string
 }
+
+export type fetchedData = {
+  results: Character[]
+  info: { next: string | null; count: number }
+}
+
+export type fetchedCharactersData = fetchedData & {
+  numberOfCharacters: number
+}
