@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SearchInput } from '../searchInput/SearchInput'
 import { Card } from '../card/Card'
-import { fetchCharactersByName, loadNextPage } from '../../api'
+import { apiController } from '../../api'
 import { Character } from '../../types/types'
 import { Link } from 'react-router-dom'
 import { useDebounce } from '../../hooks/useDebounce'
@@ -18,16 +18,20 @@ export const App = () => {
   )
 
   const handleLoadMore = async () => {
-    const newCharacters = await loadNextPage(setLoadingIsFinished)
-    setCharacters((prev) => [...prev, ...newCharacters])
+    const newCharacters = await apiController.fetchCharacters()
+    setCharacters((prev) => [...prev, ...newCharacters.results])
   }
 
   const debouncedFetch = useDebounce((term: string) => {
-    fetchCharactersByName(term, setLoadingIsFinished).then((data) => {
-      setCharacters(data?.characters ?? [])
-      setNumberOfCharacters(data?.numberOfCharacters ?? null)
+    apiController.fetchCharacters({ name: term }).then((data) => {
+      setCharacters(data.results)
+      setNumberOfCharacters(data.info.count)
     })
-  }, 500)
+  }, 300)
+
+  useEffect(() => {
+    apiController.setLoadingHandler(setLoadingIsFinished)
+  }, [])
 
   useEffect(() => {
     if (searchTerm.length > 3) {
