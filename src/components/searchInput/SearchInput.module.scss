@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(calc(320px - 2rem), calc(100vw / 3));
+}
+
+.input {
+  inline-size: 100%;
+  padding: 25px 30px;
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: bold;
+  color: #656ec2;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: #656ec2;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: #656ec2;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+  }
+}
