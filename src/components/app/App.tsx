@@ -60,9 +60,12 @@ export const App = () => {
     <>
       <SearchInput changeInput={debouncedSetSearchTerm} />
       {searchResults.characters.length > 0 && (
-        <p className="results">
+        <h2 className="results">
           Found characters: {searchResults.numberOfCharacters}
-        </p>
+        </h2>
+      )}
+      {searchResults.noResultsFound && (
+        <h2 className="results">No results found</h2>
       )}
       {searchResults.characters.length > 0 && (
         <div className="wrapper">
@@ -85,9 +88,6 @@ export const App = () => {
             <Button onClick={handleLoadMore}>Download more</Button>
           )}
         </div>
-      )}
-      {searchResults.noResultsFound && (
-        <p className="results">No results found</p>
       )}
     </>
   )

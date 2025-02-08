@@ -10,9 +10,9 @@ interface CardProps {
 export const Card = ({ name, species, status, created }: CardProps) => {
   return (
     <>
-      <h2 className={styles.title}>
+      <h3 className={styles.title}>
         {name} - {species}
-      </h2>
+      </h3>
       <p className={styles.status}>
         Status:{' '}
         <span className={`${styles[status.toLowerCase()]}`}>{status}</span>
