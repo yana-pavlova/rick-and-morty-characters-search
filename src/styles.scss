@@ -28,6 +28,10 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 #root {
@@ -53,7 +57,7 @@ a {
     }
   }
 
-  &:focus-visible {
+  &:has(a:focus-visible) {
     outline: none;
     border-color: #656ec2;
     box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
