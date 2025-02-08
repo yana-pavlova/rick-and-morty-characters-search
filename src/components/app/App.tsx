@@ -16,6 +16,7 @@ export const App = () => {
   const [loadingIsFinished, setLoadingIsFinished] = useState<boolean | null>(
     null
   )
+  const [noResultsFound, setNoResultsFound] = useState<boolean | null>(null)
 
   const debouncedSetSearchTerm = useDebounce((value: string) => {
     setSearchTerm(value)
@@ -29,6 +30,12 @@ export const App = () => {
   useEffect(() => {
     apiController.setLoadingHandler(setLoadingIsFinished)
   }, [])
+
+  useEffect(() => {
+    if (characters.length === 0 && searchTerm.length > 3)
+      setNoResultsFound(true)
+    else setNoResultsFound(false)
+  }, [characters, searchTerm])
 
   useEffect(() => {
     if (searchTerm.length > 3) {
@@ -67,6 +74,7 @@ export const App = () => {
           )}
         </div>
       )}
+      {noResultsFound && <p className="results">No results found</p>}
     </>
   )
 }
