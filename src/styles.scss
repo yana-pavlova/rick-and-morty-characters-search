@@ -58,6 +58,12 @@ a {
     border-color: #656ec2;
     box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
   }
+
+  &:active {
+    box-shadow:
+      0 6px 10px rgba(101, 110, 193, 0.1),
+      0 7px 5px rgba(101, 110, 193, 0.06);
+  }
 }
 
 .results {
