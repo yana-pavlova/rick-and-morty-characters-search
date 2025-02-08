@@ -66,18 +66,21 @@ export const App = () => {
       )}
       {searchResults.characters.length > 0 && (
         <div className="wrapper">
-          <div className="cards-container">
+          <ul className="cards-container">
             {searchResults.characters.map((character) => (
-              <Link
-                key={character.id}
-                to={character.url}
-                target="_blank"
-                className="shadowed-block"
-              >
-                <Card {...character} />
-              </Link>
+              <li key={character.id} className="card shadowed-block">
+                <article style={{ blockSize: '100%' }}>
+                  <Link
+                    to={character.url}
+                    target="_blank"
+                    className="card-container"
+                  >
+                    <Card {...character} />
+                  </Link>
+                </article>
+              </li>
             ))}
-          </div>
+          </ul>
           {loadingIsFinished === false && (
             <Button onClick={handleLoadMore}>Download more</Button>
           )}

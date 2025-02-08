@@ -19,6 +19,11 @@ p {
   margin: 0;
 }
 
+ul {
+  padding: 0;
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -64,6 +69,7 @@ a {
 }
 
 .wrapper {
+  inline-size: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,4 +150,16 @@ a {
       }
     }
   }
+}
+
+.card {
+  block-size: 100%;
+}
+
+.card-container {
+  block-size: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: end;
 }
