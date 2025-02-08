@@ -1,6 +1,6 @@
 # rick-and-morty-characters-search
 
-try it here: <a target="_blank" href="https://yana-pavlova.github.io/rick-and-morty-characters-search">https://yana-pavlova.github.io/rick-and-morty-characters-search</a>
+try it here: <a target="_blank">https://yana-pavlova.github.io/rick-and-morty-characters-search</a>
 
 ## stack
 - react
@@ -17,4 +17,4 @@ try it here: <a target="_blank" href="https://yana-pavlova.github.io/rick-and-mo
 
 ***
 
-Rick and Morty site <a target="_blank" href="https://rickandmortyapi.com/documentation/#rest">REST API</a> was used in the project
+<a href="https://rickandmortyapi.com/documentation/#rest">Rick and Morty site</a> REST API was used in the project
