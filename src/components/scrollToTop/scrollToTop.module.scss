@@ -1,0 +1,38 @@
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #333;
+  background-color: transparent;
+  opacity: 0.2;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    inline-size 0.2s ease;
+  cursor: pointer;
+
+  &:active {
+    opacity: 1;
+    background-color: #f8f8f8;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+      background-color: #f8f8f8;
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  inline-size: 30px;
+  block-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

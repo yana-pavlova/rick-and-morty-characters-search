@@ -6,6 +6,7 @@ import { Character } from '../../types/types'
 import { Link } from 'react-router-dom'
 import { useDebounce } from '../../hooks/useDebounce'
 import { Button } from '../button/Button'
+import { ScrollToTop } from '../scrollToTop/scrollToTop'
 
 export const App = () => {
   const [searchResults, setSearchResults] = useState<{
@@ -87,6 +88,7 @@ export const App = () => {
           {loadingIsFinished === false && (
             <Button onClick={handleLoadMore}>Download more</Button>
           )}
+          <ScrollToTop />
         </div>
       )}
     </>
