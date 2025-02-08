@@ -29,7 +29,8 @@
 
   @media (min-width: 1920px) {
     & {
-      left: 50%;
+      position: sticky;
+      margin-inline-start: auto;
     }
   }
 }
