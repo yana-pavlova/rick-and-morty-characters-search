@@ -72,6 +72,7 @@ a {
     }
   }
 
+  &:focus-visible,
   &:has(a:focus-visible) {
     outline: none;
     border-color: #656ec2;
