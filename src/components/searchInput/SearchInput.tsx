@@ -13,7 +13,7 @@ export const SearchInput = ({ changeInput }: SearchInputProps) => {
   }, [])
 
   const handleChange = (value: string) => {
-    changeInput(value)
+    changeInput(value.trim())
   }
 
   return (
